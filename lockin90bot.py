@@ -355,6 +355,14 @@ def test_db():
     except Exception as e:
         return jsonify({"ok": False, "error": str(e)})
 
+@app.route("/test-bot", methods=["GET"])
+def test_bot():
+    try:
+        bot.send_message(8103251058, "✅ Bot is working!")
+        return jsonify({"ok": True})
+    except Exception as e:
+        return jsonify({"ok": False, "error": str(e)})
+
 @app.route("/", methods=["GET"])
 def index():
     return jsonify({"status": "LockIn90 bot is running!"})
