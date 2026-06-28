@@ -5,11 +5,12 @@ from flask import Flask, request, jsonify
 import pytz
 import telebot
 from supabase import create_client
+from dotenv import load_dotenv
 
 # ── Config ────────────────────────────────────────────────────────────────────
-BOT_TOKEN = os.environ.get("8801964015:AAEjccCzX_W0AW5hRHQs1LipCv89Q46uiTA")
-SUPABASE_URL = os.environ.get("https://kachwdyzbhlgmiaokoye.supabase.co")
-SUPABASE_KEY = os.environ.get("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImthY2h3ZHl6YmhsZ21pYW9rb3llIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI2NjQ0MjIsImV4cCI6MjA5ODI0MDQyMn0.ucEB3946304XGhLjKhZYJXrP1zQJSxKPuyKWw3IhMhc")
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
+SUPABASE_URL = os.environ.get("SUPABASE_URL")
+SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
 GROUP_ID = -1004332813760
 LOGS_TOPIC_ID = 64
 GENERAL_TOPIC_ID = 1
