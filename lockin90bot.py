@@ -5,7 +5,7 @@ from flask import Flask, request, jsonify
 import pytz
 import telebot
 from supabase import create_client
-from dotenv import load_dotenv
+
 
 # ── Config ────────────────────────────────────────────────────────────────────
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
