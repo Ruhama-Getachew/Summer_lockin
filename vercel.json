@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "lockin90bot.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "lockin90bot.py"
+    }
+  ]
+}
