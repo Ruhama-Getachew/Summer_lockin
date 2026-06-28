@@ -347,6 +347,13 @@ def set_webhook():
     bot.set_webhook(url=url)
     return jsonify({"ok": True, "webhook": url})
 
+@app.route("/test-db", methods=["GET"])
+def test_db():
+    try:
+        res = supabase.table("members").select("*").limit(1).execute()
+        return jsonify({"ok": True, "data": res.data})
+    except Exception as e:
+        return jsonify({"ok": False, "error": str(e)})
 
 @app.route("/", methods=["GET"])
 def index():
