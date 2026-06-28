@@ -342,7 +342,7 @@ def leaderboard_post():
 
 @app.route("/setwebhook", methods=["GET"])
 def set_webhook():
-    url = f"{WEBHOOK_URL}/{BOT_TOKEN}"
+    url = f"https://summer-lockin.vercel.app/webhook"
     bot.remove_webhook()
     bot.set_webhook(url=url)
     return jsonify({"ok": True, "webhook": url})
@@ -362,6 +362,15 @@ def test_bot():
         return jsonify({"ok": True})
     except Exception as e:
         return jsonify({"ok": False, "error": str(e)})
+
+@app.route("/webhook", methods=["POST"])
+def webhook():
+    try:
+        update = telebot.types.Update.de_json(request.get_json())
+        bot.process_new_updates([update])
+    except Exception as e:
+        logging.error(f"Webhook error: {e}")
+    return jsonify({"ok": True})
 
 @app.route("/", methods=["GET"])
 def index():
